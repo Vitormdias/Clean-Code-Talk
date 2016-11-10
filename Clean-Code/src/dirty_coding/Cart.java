@@ -2,13 +2,13 @@ package dirty_coding;
 
 public class Cart {
 	private String ttle;
-	private double dscnt;
+	private double dscnt = 0;
 	private double t = 0;
 	private Item[] Items;
 	public String getTtle() {
 		return ttle;
 	}
-	public void setTtle(String ttle) {
+	public void calcTtle(String ttle) {
 		this.ttle = ttle;
 	}
 	public double getDscnt() {
@@ -18,17 +18,29 @@ public class Cart {
 		this.dscnt = dscnt;
 	}
 	public double getT() {
-		setT();
+		if(dscnt > 0) {
+			calcT();
+		}
+		else {
+			calcTDscnt();
+		}
 		return t;
 	}
 	int i = 0;
-	public void setT() {
+	public void calcT() {
 		int j;
 		for(j=0;j<i;j++) 
 		{
 			t += Items[j].getPrce() * Items[j].getQtt();
 		}
 		t -= dscnt;
+	}
+	public void calcTDscnt() {
+		int j;
+		for(j=0;j<i;j++) 
+		{
+			t += Items[j].getPrce() * Items[j].getQtt();
+		}
 	}
 	public Item[] getItems() {
 		return Items;
