@@ -4,7 +4,7 @@ public class Cart {
 	private String ttle;
 	private double dscnt;
 	private double t = 0;
-	private Item[] items;
+	private Item[] Items;
 	public String getTtle() {
 		return ttle;
 	}
@@ -26,19 +26,19 @@ public class Cart {
 		int j;
 		for(j=0;j<i;j++) 
 		{
-			t += items[j].getPrce() * items[j].getQtt();
+			t += Items[j].getPrce() * Items[j].getQtt();
 		}
 		t -= dscnt;
 	}
 	public Item[] getItems() {
-		return items;
+		return Items;
 	}
 	public void setItems() {
-		items = new Item[qtIt];
+		Items = new Item[qtIt];
 	}
 	public void addItem(Item item) {
 		if(i < qtIt)
-		items[i++] = item;
+		Items[i++] = item;
 	}
 	private int qtIt;
 	public int getQtIt() {
